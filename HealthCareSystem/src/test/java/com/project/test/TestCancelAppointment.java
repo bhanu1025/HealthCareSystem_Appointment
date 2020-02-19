@@ -19,44 +19,44 @@ public class TestCancelAppointment {
 	
 
 	@Test
-	@DisplayName("Test Case 1")
-	public void testAppointment1() throws SlotException, AppointmentException, ValidateException {
+	@DisplayName("Cancel Appointment")
+	public void testCancelAppointment1() throws SlotException, AppointmentException, ValidateException {
 		HealthService ser = new HealthServiceImpl();
 		assertTrue(ser.cancelAppointment("t1s1", "10001"));
 	}
 
 	@Test
-	@DisplayName("Test Case 2")
-	public void testAppointment2() throws /* SlotException, */ AppointmentException, ValidateException {
+	@DisplayName("SlotException for slotId")
+	public void testCancelAppointment2() throws /* SlotException, */ AppointmentException, ValidateException {
 		HealthService ser = new HealthServiceImpl();
 		assertThrows(SlotException.class, () -> ser.cancelAppointment("t3s1", "10001"));
 	}
 
 	@Test
-	@DisplayName("Test Case 3")
-	public void testAppointment3() throws SlotException, ValidateException, AppointmentException {
+	@DisplayName("Cancel Appointment Twice")
+	public void testCancelAppointment3() throws SlotException, ValidateException, AppointmentException {
 		HealthService ser = new HealthServiceImpl();
 		assertAll(() -> assertEquals(true, ser.cancelAppointment("t1s2", "10002")),
 				  () -> assertThrows(AppointmentException.class, () -> ser.cancelAppointment("t1s2", "10002")));
 	}
 
 	@Test
-	@DisplayName("Test Case 4")
-	public void testAppointment4() throws SlotException, ValidateException, AppointmentException {
+	@DisplayName("AppointmentException for apmtId")
+	public void testCancelAppointment4() throws SlotException, ValidateException, AppointmentException {
 		HealthService ser = new HealthServiceImpl();
 		assertThrows(AppointmentException.class, () -> ser.cancelAppointment("t2s1", "10001"));
 	}
 
 	@Test
-	@DisplayName("Test Case 5")
-	public void testAppointment5() throws SlotException, ValidateException, AppointmentException {
+	@DisplayName("ValidateException for slotId")
+	public void testCancelAppointment5() throws SlotException, ValidateException, AppointmentException {
 		HealthService ser = new HealthServiceImpl();
 		assertThrows(ValidateException.class, () -> ser.cancelAppointment("t", "10001"));
 	}
 	
 	@Test
-	@DisplayName("Test Case 6")
-	public void testAppointment6() throws SlotException, ValidateException, AppointmentException {
+	@DisplayName("ValidateException for slotId and apmtId")
+	public void testCancelAppointment6() throws SlotException, ValidateException, AppointmentException {
 		HealthService ser = new HealthServiceImpl();
 		assertThrows(ValidateException.class, () -> ser.cancelAppointment("", ""));
 	}

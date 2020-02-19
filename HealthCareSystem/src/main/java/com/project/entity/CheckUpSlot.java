@@ -4,6 +4,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/*********************************************************************************************
+ * @author Bhanu Prakash Kavuri
+ * Class: CheckUpSlot
+ *********************************************************************************************/
+
 public class CheckUpSlot {
 	private String testSlotId;
 	private String testId;
@@ -11,6 +16,13 @@ public class CheckUpSlot {
 	private int numOfApp;
 	private List<Appointment> apmtList = new ArrayList<>();
 
+	/*****************************************************************************************
+	 * Method: Constructor method - CheckUpSlot
+	 * @param testSlotId
+	 * @param testId
+	 * @param date
+	 * @param numOfApp
+	 *****************************************************************************************/
 	public CheckUpSlot(String testSlotId, String testId, LocalDate date, int numOfApp) {
 		super();
 		this.testSlotId = testSlotId;
@@ -59,6 +71,10 @@ public class CheckUpSlot {
 		this.apmtList = apmtList;
 	}
 
+	/*****************************************************************************************
+	 * Method: This is the overrided constructor method toString()
+	 * @return the values of all the variables 
+	 *****************************************************************************************/
 	@Override
 	public String toString() {
 		return "testSlotId=" + testSlotId + "\ntestId=" + testId + "\ndate=" + date + "\nnumOfApp=" + numOfApp

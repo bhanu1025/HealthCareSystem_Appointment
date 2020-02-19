@@ -1,9 +1,9 @@
 package com.project.entity;
 
-/**********************************************************************************************************
+/*********************************************************************************************
  * @author Bhanu Prakash Kavuri
- * This class 'APpoi
- */
+ * Class: Appointment
+ *********************************************************************************************/
 
 public class Appointment {
 	
@@ -14,6 +14,15 @@ public class Appointment {
 	private String centreId;
 	private String slotId;
 	
+	/*****************************************************************************************
+	 * Method: Constructor method - Appointment
+	 * @param apmtId - appointmnet ID
+	 * @param userId
+	 * @param userContactNum
+	 * @param testId
+	 * @param centreId
+	 * @param slotId
+	 *****************************************************************************************/
 	public Appointment(String apmtId, String userId, long userContactNum, String testId, String centreId,
 			String slotId) {
 		super();
@@ -73,12 +82,14 @@ public class Appointment {
 		this.slotId = slotId;
 	}
 
+	/*****************************************************************************************
+	 * Method: This is the overrided constructor method toString()
+	 * @return the values of all the variables 
+	 *****************************************************************************************/
 	@Override
 	public String toString() {
 		return "apmtId=" + apmtId + ", userId=" + userId + ", userContactNum=" + userContactNum
 				+ ", testId=" + testId + ", centreId=" + centreId + ", slotId=" + slotId + "\n        " ;
 	}
-	
-	
 	
 }

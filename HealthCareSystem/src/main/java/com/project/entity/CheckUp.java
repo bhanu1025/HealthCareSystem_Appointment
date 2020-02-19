@@ -3,12 +3,23 @@ package com.project.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+/*********************************************************************************************
+ * @author Bhanu Prakash Kavuri
+ * Class: CheckUp
+ *********************************************************************************************/
+
 public class CheckUp {
 	public String testId;
 	public String testName;
 	public double amount;
 	List<CheckUpSlot> checkUpSlotList = new ArrayList<CheckUpSlot>();
 
+	/*****************************************************************************************
+	 * Method: Constructor method - CheckUp
+	 * @param testId
+	 * @param testName
+	 * @param amount
+	 *****************************************************************************************/
 	public CheckUp(String testId, String testName, double amount) {
 		super();
 		this.testId = testId;

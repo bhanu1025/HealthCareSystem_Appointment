@@ -2,6 +2,7 @@ package com.project.test;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
@@ -16,21 +17,21 @@ import com.project.service.HealthServiceImpl;
 public class TestAppointment {
 
 	@Test
-	@DisplayName("Test Case 1")
-	public void testAppointment1() throws AppointmentException, ValidateException, SlotException {
+	@DisplayName("ValidateException for apmtId")
+	public void testAppointment1() throws SlotException, ValidateException, AppointmentException {
 		HealthService ser = new HealthServiceImpl();
-		assertEquals(0, ser.getSlot("t2s2").getApmtList().size());
+		assertThrows(ValidateException.class, () -> ser.cancelAppointment("t1s1", "1"));
 	}
 
 	@Test
-	@DisplayName("Test Case 2")
+	@DisplayName("Size of Appointment list")
 	public void testAppointment2() throws AppointmentException, ValidateException, SlotException {
 		HealthService ser = new HealthServiceImpl();
 		assertEquals(2, ser.getSlot("t1s1").getApmtList().size());
 	}
 
 	@Test
-	@DisplayName("Test Case 3")
+	@DisplayName("Size of Apppointment list befor & after cancelling appointment")
 	public void testAppointment3() throws AppointmentException, ValidateException, SlotException {
 		HealthService ser = new HealthServiceImpl();
 		assertAll(() -> assertEquals(2, ser.getSlot("t1s1").getApmtList().size()),
@@ -38,7 +39,4 @@ public class TestAppointment {
 				  () -> assertEquals(1, ser.getSlot("t1s1").getApmtList().size()));
 	}
 	
-	
-	
-
 }
